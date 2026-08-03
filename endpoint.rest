@@ -13,4 +13,289 @@ Content-Type: application/json
   "username": "joao1234",
   "password": "senha123"
 }
- 
+### HEALTH
+
+GET {{apiUrl}}/health
+
+> {%
+client.global.set("token", response.body.token);
+%}
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMTlmYzU3My1mYTVjLTczOGQtOTYwMS1jY2EyZGZhNDI4OGYiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NTcyNDIwMywiZXhwIjoxNzg1ODEwNjAzfQ.7IGKWgRan85EDV_BEDZUETv2hkIcRusgtlvbK7OpwJs
+
+
+### =====================
+### AUTH
+### =====================
+
+
+### Criar usuário admin
+
+POST {{apiUrl}}/users/auth/register
+Content-Type: application/json
+
+{
+  "name": "Admin",
+  "email": "admin@test.com",
+  "password": "123456",
+  "role": "admin"
+}
+
+
+### Criar usuário comum
+
+POST {{apiUrl}}/users/auth/register
+Content-Type: application/json
+
+{
+  "name": "User",
+  "email": "user@test.com",
+  "password": "123456"
+}
+
+
+### Login admin
+
+POST {{apiUrl}}/users/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "123456"
+}
+
+
+### Login user
+
+POST {{apiUrl}}/users/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@test.com",
+  "password": "123456"
+}
+
+
+
+### =====================
+### USERS
+### =====================
+
+
+### Listar usuários
+
+GET {{apiUrl}}/users
+Authorization: Bearer {{token}}
+
+
+
+### Buscar usuário
+
+GET {{apiUrl}}/users/{{userId}}
+Authorization: Bearer {{token}}
+
+
+
+### Atualizar usuário
+
+PUT {{apiUrl}}/users/{{userId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Novo Nome"
+}
+
+
+
+### Deletar usuário
+
+DELETE {{apiUrl}}/users/{{userId}}
+Authorization: Bearer {{token}}
+
+
+
+### Listar tarefas do usuário
+
+GET {{apiUrl}}/users/{{userId}}/tasks
+Authorization: Bearer {{token}}
+
+
+
+### =====================
+### PROJECTS
+### =====================
+
+
+### Criar projeto
+
+POST {{apiUrl}}/projects
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Projeto Node",
+  "description": "Projeto para testar API",
+  "status": "active"
+}
+
+
+
+### Listar projetos
+
+GET {{apiUrl}}/projects
+Authorization: Bearer {{token}}
+
+
+
+### Buscar projeto
+
+GET {{apiUrl}}/projects/{{projectId}}
+Authorization: Bearer {{token}}
+
+
+
+### Atualizar projeto
+
+PUT {{apiUrl}}/projects/{{projectId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Projeto Atualizado",
+  "status": "completed"
+}
+
+
+
+### Deletar projeto
+
+DELETE {{apiUrl}}/projects/{{projectId}}
+Authorization: Bearer {{token}}
+
+
+
+### Listar tarefas do projeto
+
+GET {{apiUrl}}/projects/{{projectId}}/tasks
+Authorization: Bearer {{token}}
+
+
+
+### =====================
+### TASKS
+### =====================
+
+
+### Criar tarefa
+
+POST {{apiUrl}}/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Criar endpoint",
+  "description": "Criar endpoints da API",
+  "priority": "high",
+  "projectId": 1
+}
+
+
+
+### Listar tarefas
+
+GET {{apiUrl}}/tasks
+Authorization: Bearer {{token}}
+
+
+
+### Buscar tarefa
+
+GET {{apiUrl}}/tasks/{{taskId}}
+Authorization: Bearer {{token}}
+
+
+
+### Filtrar concluídas
+
+GET {{apiUrl}}/tasks?completed=true
+Authorization: Bearer {{token}}
+
+
+
+### Filtrar prioridade
+
+GET {{apiUrl}}/tasks?priority=high
+Authorization: Bearer {{token}}
+
+
+
+### Ordenar
+
+GET {{apiUrl}}/tasks?sort=deadline&order=desc
+Authorization: Bearer {{token}}
+
+
+
+### Atualizar tarefa
+
+PUT {{apiUrl}}/tasks/{{taskId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Tarefa atualizada",
+  "priority": "medium"
+}
+
+
+
+### Deletar tarefa
+
+DELETE {{apiUrl}}/tasks/{{taskId}}
+Authorization: Bearer {{token}}
+
+
+
+### Completar tarefa
+
+PATCH {{apiUrl}}/tasks/{{taskId}}/complete
+Authorization: Bearer {{token}}
+
+
+
+### =====================
+### ASSIGN TASK USERS
+### =====================
+
+
+### Atribuir usuários
+
+POST {{apiUrl}}/tasks/{{taskId}}/assign
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userIds": [
+    1
+  ]
+}
+
+
+
+### Remover usuário da tarefa
+
+DELETE {{apiUrl}}/tasks/{{taskId}}/assign/1
+Authorization: Bearer {{token}}
+
+
+
+### =====================
+### REPORTS
+### =====================
+
+
+### Relatório de projetos
+
+GET {{apiUrl}}/reports/projects
+Authorization: Bearer {{token}}
