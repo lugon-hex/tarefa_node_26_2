@@ -21,8 +21,7 @@ GET {{apiUrl}}/health
 client.global.set("token", response.body.token);
 %}
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMTlmYzU3My1mYTVjLTczOGQtOTYwMS1jY2EyZGZhNDI4OGYiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NTcyNDIwMywiZXhwIjoxNzg1ODEwNjAzfQ.7IGKWgRan85EDV_BEDZUETv2hkIcRusgtlvbK7OpwJs
-
+## @token=
 
 ### =====================
 ### AUTH
