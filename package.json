@@ -4,17 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "tsx watch src/server.js",
+    "start:prod": "node build/server.js",
+    "build": "tsup",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "prettier --check \"src/**/*.ts\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "fastify": "^5.11.0"
+    "@prisma/adapter-pg": "7.9.1",
+    "@prisma/client": "7.9.1",
+    "bcryptjs": "3.0.3",
+    "dotenv": "17.4.2",
+    "fastify": "^5.11.0",
+    "pg": "8.22.0",
+    "zod": "4.4.3"
   },
   "devDependencies": {
-    "@types/node": "^26.1.2",
+    "@fastify/jwt": "10.2.1",
+    "@types/node": "26.1.2",
+    "@types/pg": "8.20.3",
+    "prettier": "3.9.6",
+    "prisma": "7.9.1",
     "tsup": "^8.5.1",
     "tsx": "^4.23.1",
     "typescript": "^7.0.2"

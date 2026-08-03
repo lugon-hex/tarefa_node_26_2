@@ -1,0 +1,57 @@
+import type { FastifyInstance } from 'fastify'
+
+import { register } from './register.controller.js'
+import { authenticate } from './authenticate-user.controller.js'
+import { get } from './get-user.controller.js'
+import { list } from './list-users.controller.js'
+import { deleteUser } from './delete-user.controller.js'
+import { update } from './update-users.controller.js'
+import { listTasksByUser } from './list-tasks.controller.js'
+
+import { verifyJwt } from '@/http/middlewares/verify-jwt.js'
+import { verifySelfOrAdmin } from '@/http/middlewares/verify-self-or-admin.js'
+
+export async function usersRoutes(app: FastifyInstance) {
+  app.post('/auth/register', register)
+  app.post('/auth/login', authenticate)
+
+  app.get(
+    '/:publicId',
+    {
+      onRequest: [verifyJwt],
+    },
+    get,
+  )
+
+  app.get(
+    '/',
+    {
+      onRequest: [verifyJwt],
+    },
+    list,
+  )
+
+  app.get(
+    '/:publicId/tasks',
+    {
+      onRequest: [verifyJwt],
+    },
+    listTasksByUser,
+  )
+
+  app.put(
+    '/:publicId',
+    {
+      onRequest: [verifyJwt, verifySelfOrAdmin],
+    },
+    update,
+  )
+
+  app.delete(
+    '/:publicId',
+    {
+      onRequest: [verifyJwt, verifySelfOrAdmin],
+    },
+    deleteUser,
+  )
+}
