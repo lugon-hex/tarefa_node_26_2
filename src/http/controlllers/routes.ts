@@ -1,9 +1,9 @@
 import type { FastifyInstance } from 'fastify'
-import { usersRoutes } from './users/users.routes.js'
-import { projectsRoutes } from './projects/projects.routes.js'
-import { tasksRoutes } from './tasks/tasks.routes.js';
-import { reportsRoutes } from './reports/reports.routes.js';
 import { healthRoutes } from './health/health.routes.js'
+import { projectsRoutes } from './projects/projects.routes.js'
+import { reportsRoutes } from './reports/reports.routes.js'
+import { tasksRoutes } from './tasks/tasks.routes.js'
+import { usersRoutes } from './users/users.routes.js'
 
 export async function appRoutes(app: FastifyInstance) {
   app.register(healthRoutes)
@@ -15,6 +15,4 @@ export async function appRoutes(app: FastifyInstance) {
   app.register(tasksRoutes, { prefix: '/tasks' })
 
   app.register(reportsRoutes, { prefix: '/reports' })
-
-
 }

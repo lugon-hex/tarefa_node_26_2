@@ -1,8 +1,8 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
-import { UserPresenter } from '../presenters/user-presenter.js'
-import { makeGetUseCase } from '@/use-cases/users/factories/make-get-user.js'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error.js'
+import { makeGetUseCase } from '@/use-cases/users/factories/make-get-user.js'
+import { UserPresenter } from '../presenters/user-presenter.js'
 
 export async function get(request: FastifyRequest, reply: FastifyReply) {
   try {

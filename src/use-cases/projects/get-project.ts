@@ -1,5 +1,5 @@
-import type { ProjectsRepository } from '@/repositories/projects-repository.js'
 import type { Project } from '@/@types/prisma/client.js'
+import type { ProjectsRepository } from '@/repositories/projects-repository.js'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 interface GetProjectUseCaseRequest {

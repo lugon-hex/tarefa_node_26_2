@@ -1,9 +1,11 @@
-import type { USER_ROLE } from '@/@types/prisma/client.js'
 import type { FastifyReply, FastifyRequest } from 'fastify'
+import type { USER_ROLE } from '@/@types/prisma/client.js'
 import { prisma } from '@/libs/prisma.js'
 
-export async function verifyTaskPermission( request: FastifyRequest, reply: FastifyReply) {
-
+export async function verifyTaskPermission(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
   const { role, sub } = request.user as {
     role: USER_ROLE
     sub: string

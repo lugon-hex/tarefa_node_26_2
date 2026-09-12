@@ -1,8 +1,8 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
-import { UserPresenter } from '../presenters/user-presenter.js'
-import { makeUpdateUseCase } from '@/use-cases/users/factories/make-update-user.js'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error.js'
+import { makeUpdateUseCase } from '@/use-cases/users/factories/make-update-user.js'
+import { UserPresenter } from '../presenters/user-presenter.js'
 
 export async function update(request: FastifyRequest, reply: FastifyReply) {
   try {

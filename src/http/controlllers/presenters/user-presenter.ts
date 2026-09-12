@@ -13,7 +13,7 @@ export class UserPresenter {
   static toHTTP(users: User[]): HTTPUser[]
   static toHTTP(input: User | User[]): HTTPUser | HTTPUser[] {
     if (Array.isArray(input)) {
-      return input.map((user) => this.toHTTP(user))
+      return input.map((user) => UserPresenter.toHTTP(user))
     }
 
     return {

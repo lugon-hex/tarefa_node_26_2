@@ -1,9 +1,9 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
-import { ProjectPresenter } from '../presenters/project-presenter.js'
 import { ProjectAlreadyExistsError } from '@/use-cases/errors/project-already-exists-error.js'
 import { makeListUseCase } from '@/use-cases/projects/factories/make-list-projects.js'
+import { ProjectPresenter } from '../presenters/project-presenter.js'
 
-export async function list(request: FastifyRequest, reply: FastifyReply) {
+export async function list(_request: FastifyRequest, reply: FastifyReply) {
   try {
     const listProjectUseCase = makeListUseCase()
     const { projects } = await listProjectUseCase.execute()

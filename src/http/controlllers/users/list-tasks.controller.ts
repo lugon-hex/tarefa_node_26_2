@@ -1,8 +1,8 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
-import { TaskPresenter } from '../presenters/task-presenter.js'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error.js'
 import { makeListTasksByUserUseCase } from '@/use-cases/users/factories/make-list-tasks.js'
+import { TaskPresenter } from '../presenters/task-presenter.js'
 
 export async function listTasksByUser(
   request: FastifyRequest,

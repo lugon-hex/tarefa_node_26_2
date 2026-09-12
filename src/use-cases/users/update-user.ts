@@ -1,5 +1,5 @@
-import type { UsersRepository } from '@/repositories/users-repository.js'
 import type { User } from '@/@types/prisma/client.js'
+import type { UsersRepository } from '@/repositories/users-repository.js'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 interface UpdateUserUseCaseRequest {
@@ -27,7 +27,8 @@ export class UpdateUserUseCase {
     }
 
     const user = await this.usersRepository.update(userToUpdate.id, {
-      name
+      name,
+      email,
     })
 
     return { user }

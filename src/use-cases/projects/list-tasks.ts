@@ -1,5 +1,5 @@
-import type { TasksRepository } from '@/repositories/tasks-repository.js'
 import type { ProjectsRepository } from '@/repositories/projects-repository.js'
+import type { TasksRepository } from '@/repositories/tasks-repository.js'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 interface ListTasksByProjectUseCaseRequest {

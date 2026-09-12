@@ -1,5 +1,5 @@
-import z from 'zod'
 import type { FastifyReply, FastifyRequest } from 'fastify'
+import z from 'zod'
 import { UserAlreadyExistsError } from '@/use-cases/errors/user-already-exists-error.js'
 import { makeRegisterUseCase } from '@/use-cases/users/factories/make-register-use-case.js'
 

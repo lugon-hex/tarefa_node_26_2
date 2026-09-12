@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
-import { makeDeleteUseCase } from '@/use-cases/tasks/factories/make-delete-task.js'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error.js'
+import { makeDeleteUseCase } from '@/use-cases/tasks/factories/make-delete-task.js'
 
 export async function deleteTask(request: FastifyRequest, reply: FastifyReply) {
   try {

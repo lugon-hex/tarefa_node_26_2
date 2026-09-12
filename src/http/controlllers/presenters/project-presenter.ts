@@ -14,7 +14,7 @@ export class ProjectPresenter {
   static toHTTP(projects: Project[]): HTTPProject[]
   static toHTTP(input: Project | Project[]): HTTPProject | HTTPProject[] {
     if (Array.isArray(input)) {
-      return input.map((project) => this.toHTTP(project))
+      return input.map((project) => ProjectPresenter.toHTTP(project))
     }
 
     return {

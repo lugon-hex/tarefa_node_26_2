@@ -1,15 +1,13 @@
 import type { FastifyInstance } from 'fastify'
-
-import { register } from './register.controller.js'
-import { authenticate } from './authenticate-user.controller.js'
-import { get } from './get-user.controller.js'
-import { list } from './list-users.controller.js'
-import { deleteUser } from './delete-user.controller.js'
-import { update } from './update-users.controller.js'
-import { listTasksByUser } from './list-tasks.controller.js'
-
 import { verifyJwt } from '@/http/middlewares/verify-jwt.js'
 import { verifySelfOrAdmin } from '@/http/middlewares/verify-self-or-admin.js'
+import { authenticate } from './authenticate-user.controller.js'
+import { deleteUser } from './delete-user.controller.js'
+import { get } from './get-user.controller.js'
+import { listTasksByUser } from './list-tasks.controller.js'
+import { list } from './list-users.controller.js'
+import { register } from './register.controller.js'
+import { update } from './update-users.controller.js'
 
 export async function usersRoutes(app: FastifyInstance) {
   app.post('/auth/register', register)

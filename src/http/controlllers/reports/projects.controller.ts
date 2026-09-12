@@ -2,7 +2,7 @@ import type { FastifyReply, FastifyRequest } from 'fastify'
 import { makeGetProjectsReportUseCase } from '@/use-cases/reports/factories/make-get-projects-report.js'
 
 export async function projectsReport(
-  request: FastifyRequest,
+  _request: FastifyRequest,
   reply: FastifyReply,
 ) {
   const getProjectsReportUseCase = makeGetProjectsReportUseCase()

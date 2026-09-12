@@ -1,7 +1,7 @@
 import type { Prisma } from '@/@types/prisma/client.js'
-import type { ListTaskQuery, TasksRepository } from '../tasks-repository.js'
 import { prisma } from '@/libs/prisma.js'
 import { TaskUserNotFoundError } from '@/use-cases/errors/task-user-not-found-error.js'
+import type { ListTaskQuery, TasksRepository } from '../tasks-repository.js'
 
 export class PrismaTaskRepository implements TasksRepository {
   async create(data: Prisma.TaskCreateInput) {

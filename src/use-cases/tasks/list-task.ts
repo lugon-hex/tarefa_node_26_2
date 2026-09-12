@@ -1,12 +1,7 @@
-import type { Task } from '@/@types/prisma/client.js'
 import type {
-  TasksRepository,
   ListTaskQuery,
+  TasksRepository,
 } from '@/repositories/tasks-repository.js'
-
-type ListTaskUseCaseResponse = {
-  tasks: Task[]
-}
 
 export class ListTaskUseCase {
   constructor(private tasksRepository: TasksRepository) {}

@@ -1,7 +1,6 @@
-import type { Prisma } from '@/@types/prisma/client.js'
-import type { ProjectsRepository } from '../projects-repository.js'
+import type { Prisma, Project, Task } from '@/@types/prisma/client.js'
 import { prisma } from '@/libs/prisma.js'
-import type { Project, Task } from '@/@types/prisma/client.js'
+import type { ProjectsRepository } from '../projects-repository.js'
 
 export class PrismaProjectsRepository implements ProjectsRepository {
   async create(data: Prisma.ProjectCreateInput) {

@@ -1,8 +1,8 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
-import { makeAuthenticateUserUseCase } from '@/use-cases/users/factories/make-authenticate-user.js'
-import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials-error.js'
 import { UserPresenter } from '@/http/controlllers/presenters/user-presenter.js'
+import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials-error.js'
+import { makeAuthenticateUserUseCase } from '@/use-cases/users/factories/make-authenticate-user.js'
 
 const authenticateSchema = z.object({
   email: z.string().email(),
@@ -17,7 +17,7 @@ export async function authenticate(
     const { email, password } = authenticateSchema.parse(request.body)
 
     const authenticateUserUseCase = makeAuthenticateUserUseCase()
-    const { user } = await authenticateUserUseCase.execute( { email, password } )
+    const { user } = await authenticateUserUseCase.execute({ email, password })
 
     const token = await reply.jwtSign(
       { sub: user.publicId, role: user.role },

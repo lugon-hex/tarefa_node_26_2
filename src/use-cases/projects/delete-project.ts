@@ -1,6 +1,6 @@
 import type { ProjectsRepository } from '@/repositories/projects-repository.js'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 import { ProjectHasTasksError } from '../errors/project-has-tasks-error.js'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 interface DeleteProjectCaseRequest {
   publicId: string

@@ -18,16 +18,12 @@ export class RegisterProjectUseCase {
     description,
     status,
   }: RegisterProjectUseCaseRequest): Promise<RegisterProjectUseCaseResponse> {
-    try {
-      const project = await this.projectsRepository.create({
-        name,
-        description,
-        status,
-      })
+    const project = await this.projectsRepository.create({
+      name,
+      description,
+      status,
+    })
 
-      return { project }
-    } catch (error) {
-      throw error
-    }
+    return { project }
   }
 }

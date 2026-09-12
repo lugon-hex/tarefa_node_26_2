@@ -16,7 +16,7 @@ export class TaskPresenter {
   static toHTTP(tasks: Task[]): HTTPTask[]
   static toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
     if (Array.isArray(input)) {
-      return input.map((task) => this.toHTTP(task))
+      return input.map((task) => TaskPresenter.toHTTP(task))
     }
 
     return {

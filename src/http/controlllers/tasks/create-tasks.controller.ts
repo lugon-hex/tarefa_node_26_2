@@ -1,5 +1,5 @@
-import z from 'zod'
 import type { FastifyReply, FastifyRequest } from 'fastify'
+import z from 'zod'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error.js'
 import { makeRegisterUseCase } from '@/use-cases/tasks/factories/make-register-use-case.js'
 

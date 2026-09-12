@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
-import { makeRemoveUserFromTaskUseCase } from '@/use-cases/tasks/factories/make-remove-user-from-task.js'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error.js'
+import { makeRemoveUserFromTaskUseCase } from '@/use-cases/tasks/factories/make-remove-user-from-task.js'
 
 export async function removeUser(request: FastifyRequest, reply: FastifyReply) {
   try {

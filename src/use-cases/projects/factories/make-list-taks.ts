@@ -1,6 +1,6 @@
 import { PrismaProjectsRepository } from '@/repositories/prisma/projects-prisma-repository.js'
-import { ListTasksByProjectUseCase } from '../list-tasks.js'
 import { PrismaTaskRepository } from '@/repositories/prisma/task-prisma-repository.js'
+import { ListTasksByProjectUseCase } from '../list-tasks.js'
 
 export function makeListTasksByProjectUseCase() {
   const projectsRepository = new PrismaProjectsRepository()
